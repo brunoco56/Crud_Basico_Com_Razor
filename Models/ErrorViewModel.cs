@@ -1,5 +1,3 @@
-using System;
-
 namespace ContSelf.Models
 {
     public class ErrorViewModel

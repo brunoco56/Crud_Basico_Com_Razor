@@ -5,24 +5,36 @@
 }
 
 <h1>Index</h1>
-
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Buscar">
+            <div class="form-group">
+                <label class="control-label">Nome do funcionário</label>
+                <input type="text" id="nome" name="nome" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Pesquisa" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
 <p>
     <a asp-action="Create">Criar Novo</a>
-</p>
-<p>
-<a asp-action="">Buscar</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
+                Código
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataNascimento)
+                Data de Nascimento
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Salario)
+                Salário
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Atividade)
@@ -32,7 +44,13 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+
+                
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodFuncionario)
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
@@ -43,7 +61,7 @@
                 @Html.DisplayFor(modelItem => item.Salario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Atividade)
+                @Html.DisplayFor(modelItem => item.AtividadeExibicao)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CodFuncionario">Edit</a> |

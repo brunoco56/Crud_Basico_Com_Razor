@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContSelf.Models
 {
@@ -28,5 +25,16 @@ namespace ContSelf.Models
 
         [Required]
         public string Atividade { get; set; }
+
+        public string AtividadeExibicao
+        {
+            get
+            {
+                if (Atividade.Length > 150)
+                    return Atividade.Substring(0, 150) + "...";
+
+                return Atividade;
+            }
+        }
     }
 }

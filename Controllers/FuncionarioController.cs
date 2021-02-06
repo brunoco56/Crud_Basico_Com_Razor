@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ContSelf.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using ContSelf.Models;
 
 namespace ContSelf.Controllers
 {
@@ -22,6 +19,12 @@ namespace ContSelf.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.funcionario.ToListAsync());
+        }
+        public async Task<IActionResult> Buscar(string nome)
+        {
+            var retorno = await _context.funcionario.Where(x => x.Nome.Contains(nome)).ToListAsync();
+
+            return View(retorno);
         }
 
         // GET: Funcionarios/Details/5
