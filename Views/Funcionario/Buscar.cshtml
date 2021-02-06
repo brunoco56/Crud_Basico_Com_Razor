@@ -11,16 +11,16 @@
                 Código
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Nome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataNascimento)
+                Data de Nascimento
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Salario)
+                Salário
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Atividade)
+                Atividade
             </th>
             <th></th>
         </tr>
@@ -48,9 +48,9 @@
                     @Html.DisplayFor(modelItem => item.AtividadeExibicao)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.CodFuncionario">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.CodFuncionario">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.CodFuncionario">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.CodFuncionario">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.CodFuncionario">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CodFuncionario">Deletar</a>
                 </td>
             </tr>
         }
