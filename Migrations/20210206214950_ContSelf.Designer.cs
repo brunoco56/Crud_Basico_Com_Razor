@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContSelf.Migrations
 {
     [DbContext(typeof(FuncionarioContexto))]
-    [Migration("20210206020546_Funcionario")]
-    partial class Funcionario
+    [Migration("20210206214950_ContSelf")]
+    partial class ContSelf
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,7 +41,7 @@ namespace ContSelf.Migrations
                         .HasColumnType("nvarchar(400)");
 
                     b.Property<decimal>("Salario")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric(18,2)");
 
                     b.HasKey("CodFuncionario");
 

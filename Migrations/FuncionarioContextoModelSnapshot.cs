@@ -31,7 +31,7 @@ namespace ContSelf.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -39,7 +39,7 @@ namespace ContSelf.Migrations
                         .HasColumnType("nvarchar(400)");
 
                     b.Property<decimal>("Salario")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric(18,2)");
 
                     b.HasKey("CodFuncionario");
 

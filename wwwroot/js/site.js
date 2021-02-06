@@ -15,4 +15,15 @@ $(function () {
     });
 });
 
+$('input[type=number]').inputmask('currency', {
+    "autoUnmask": true,
+    radixPoint: ",",
+    groupSeparator: ".",
+    allowMinus: false,
+    prefix: 'R$ ',
+    digits: 2,
+    digitsOptional: false,
+    rightAlign: true,
+    unmaskAsNumber: true
+});
 

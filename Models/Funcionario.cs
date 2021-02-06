@@ -17,10 +17,9 @@ namespace ContSelf.Models
         [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
 
-        [Required]
-        [Range(1, 100000)]
+        [Required]        
         [DataType(DataType.Currency)]
-        [Column(TypeName = "decimal(18, 2)")]
+        [Column(TypeName = "numeric(18, 2)")]
         public decimal Salario { get; set; }
 
         [Required]
