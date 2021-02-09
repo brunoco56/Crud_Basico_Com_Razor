@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,8 +20,9 @@ namespace ContSelf.Models
 
         [Required]        
         [DataType(DataType.Currency)]
-        [Column(TypeName = "numeric(18, 2)")]
-        public decimal Salario { get; set; }
+        [Column(TypeName = "numeric(18, 2)")]       
+        
+        public Decimal ? Salario { get; set; }
 
         [Required]
         public string Atividade { get; set; }

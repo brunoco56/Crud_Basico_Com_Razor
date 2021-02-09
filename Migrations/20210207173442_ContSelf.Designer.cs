@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContSelf.Migrations
 {
     [DbContext(typeof(FuncionarioContexto))]
-    [Migration("20210206214950_ContSelf")]
+    [Migration("20210207173442_ContSelf")]
     partial class ContSelf
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
