@@ -30,8 +30,7 @@ namespace ContSelf
             services.AddSession();
             //Setando o Banco de Dados
             services.AddDbContext<Contexto>(options =>
-            options.UseSqlServer(@"Data Source = DESKTOP-OF0L99J\SQLEXPRESS; Initial Catalog = ContSelf; Integrated Security = True")
-                );
+            options.UseSqlServer(Configuration.GetConnectionString("AppCon")));            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
