@@ -104,6 +104,14 @@ namespace ContSelf.Controllers
             if (ModelState.IsValid)
             {
                 try
+                {SSSSSSSSS
+
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
                 {
                     _context.Update(funcionario);
                     await _context.SaveChangesAsync();

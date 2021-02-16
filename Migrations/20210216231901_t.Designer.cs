@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContSelf.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210216183205_Update")]
-    partial class Update
+    [Migration("20210216231901_t")]
+    partial class t
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,8 +38,8 @@ namespace ContSelf.Migrations
                     b.Property<string>("Nome")
                         .IsConcurrencyToken()
                         .IsRequired()
-                        .HasMaxLength(400)
-                        .HasColumnType("nvarchar(400)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<decimal?>("Salario")
                         .IsConcurrencyToken()

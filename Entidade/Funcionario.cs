@@ -10,20 +10,20 @@ namespace ContSelf.Models
         public int CodFuncionario { get; set; }
 
         [Required]
-        [StringLength(400)]
+        [StringLength(200)]
         [ConcurrencyCheck]
         public string Nome { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
-
+      
         [Required]        
         [DataType(DataType.Currency)]
         [Column(TypeName = "numeric(18, 2)")]
         [ConcurrencyCheck]
 
-        public Decimal ? Salario { get; set; }
+        public virtual Decimal ? Salario { get; set; }
 
         [Required]
         public string Atividade { get; set; }
