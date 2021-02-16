@@ -8,6 +8,7 @@ namespace ContSelf.Controllers
 {
     public class FuncionarioController : Controller
     {
+        // Aqui vem a injeção de dependência, preste atenção aqui!!!!
         private readonly FuncionarioContexto _context;
 
         public FuncionarioController(FuncionarioContexto context)

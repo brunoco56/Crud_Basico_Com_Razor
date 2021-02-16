@@ -5,10 +5,12 @@ namespace ContSelf.Models
     public class FuncionarioContexto : DbContext
     {
         public DbSet<Funcionario> funcionario { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //Construtor que chama o Banco de Dados
+        public FuncionarioContexto(DbContextOptions<FuncionarioContexto> options) : base(options)
         {
-           
+
         }
+       
     }
 }
 

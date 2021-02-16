@@ -28,10 +28,10 @@ namespace ContSelf
             services.AddControllersWithViews();
             services.AddConnections();
             services.AddSession();
-            services.AddDbContext<FuncionarioContexto>(options=>
+            //Setando o Banco de Dados
+            services.AddDbContext<FuncionarioContexto>(options =>
             options.UseSqlServer(@"Data Source = DESKTOP-OF0L99J\SQLEXPRESS; Initial Catalog = ContSelf; Integrated Security = True")
-                );           
-            //services.AddSingleton<IHttpContextAcessor, HttpContextAccessor>();
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
