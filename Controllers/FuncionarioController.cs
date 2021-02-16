@@ -20,11 +20,15 @@ namespace ContSelf.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.funcionario.ToListAsync());
-        }
+        }        
+        
         public async Task<IActionResult> Buscar(string nome)
-        {
+        {  
             var retorno = await _context.funcionario.Where(x => x.Nome.Contains(nome)).ToListAsync();
-
+            if (retorno.Count == 0)
+            {
+                return View("404");
+            }
             return View(retorno);
         }
 
