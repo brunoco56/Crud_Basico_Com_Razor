@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContSelf.Migrations
 {
-    public partial class ContSelf : Migration
+    public partial class primeiroMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

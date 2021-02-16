@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContSelf.Migrations
 {
     [DbContext(typeof(FuncionarioContexto))]
-    [Migration("20210207173442_ContSelf")]
-    partial class ContSelf
+    [Migration("20210209004414_primeiroMigration")]
+    partial class primeiroMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,14 +33,15 @@ namespace ContSelf.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(400)
                         .HasColumnType("nvarchar(400)");
 
-                    b.Property<decimal>("Salario")
+                    b.Property<decimal?>("Salario")
+                        .IsRequired()
                         .HasColumnType("numeric(18,2)");
 
                     b.HasKey("CodFuncionario");

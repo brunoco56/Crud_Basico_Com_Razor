@@ -38,7 +38,8 @@ namespace ContSelf.Migrations
                         .HasMaxLength(400)
                         .HasColumnType("nvarchar(400)");
 
-                    b.Property<decimal>("Salario")
+                    b.Property<decimal?>("Salario")
+                        .IsRequired()
                         .HasColumnType("numeric(18,2)");
 
                     b.HasKey("CodFuncionario");
