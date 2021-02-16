@@ -1,6 +1,8 @@
 using ContSelf.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,9 +25,13 @@ namespace ContSelf
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddConnections();
-            services.AddDbContext<FuncionarioContexto>();
             services.AddControllersWithViews();
+            services.AddConnections();
+            services.AddSession();
+            services.AddDbContext<FuncionarioContexto>(options=>
+            options.UseSqlServer(@"Data Source = DESKTOP-OF0L99J\SQLEXPRESS; Initial Catalog = ContSelf; Integrated Security = True")
+                );           
+            //services.AddSingleton<IHttpContextAcessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
