@@ -9,9 +9,9 @@ namespace ContSelf.Controllers
     public class FuncionarioController : Controller
     {
         // Aqui vem a injeção de dependência, preste atenção aqui!!!!
-        private readonly FuncionarioContexto _context;
+        private readonly Contexto _context;
 
-        public FuncionarioController(FuncionarioContexto context)
+        public FuncionarioController(Contexto context)
         {
             _context = context;
         }
@@ -24,11 +24,12 @@ namespace ContSelf.Controllers
         
         public async Task<IActionResult> Buscar(string nome)
         {  
-            var retorno = await _context.funcionario.Where(x => x.Nome.Contains(nome)).ToListAsync();
-            if (retorno.Count == 0)
-            {
-                return View("404");
-            }
+            var retorno = await _context.funcionario.Where(x => x.Nome.Contains(nome) || x.Atividade.Contains(nome)).ToListAsync();
+            //Validação de dados vazios
+            //if (retorno.Count == 0)
+            //{
+            //    return View("404");
+            //}
             return View(retorno);
         }
 

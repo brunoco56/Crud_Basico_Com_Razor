@@ -29,7 +29,7 @@ namespace ContSelf
             services.AddConnections();
             services.AddSession();
             //Setando o Banco de Dados
-            services.AddDbContext<FuncionarioContexto>(options =>
+            services.AddDbContext<Contexto>(options =>
             options.UseSqlServer(@"Data Source = DESKTOP-OF0L99J\SQLEXPRESS; Initial Catalog = ContSelf; Integrated Security = True")
                 );
         }

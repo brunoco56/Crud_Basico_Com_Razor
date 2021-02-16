@@ -14,7 +14,3 @@ $(function () {
         prevText: 'Anterior'
     });
 });
-
-$(function () {
-    $("#valor").maskMoney();
-});

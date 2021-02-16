@@ -11,6 +11,7 @@ namespace ContSelf.Models
 
         [Required]
         [StringLength(400)]
+        [ConcurrencyCheck]
         public string Nome { get; set; }
 
         [Required]
@@ -19,8 +20,9 @@ namespace ContSelf.Models
 
         [Required]        
         [DataType(DataType.Currency)]
-        [Column(TypeName = "numeric(18, 2)")]       
-        
+        [Column(TypeName = "numeric(18, 2)")]
+        [ConcurrencyCheck]
+
         public Decimal ? Salario { get; set; }
 
         [Required]
