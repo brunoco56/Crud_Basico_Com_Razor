@@ -17,12 +17,9 @@ namespace ContSelf.Models
         [Required]
         [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
-      
-        [Required]        
-        [DataType(DataType.Currency)]
-        [Column(TypeName = "numeric(18, 2)")]
-        [ConcurrencyCheck]
-
+        [Column(TypeName = "decimal (18,4)")]
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        [Range(0, 9999999999999999.99)]
         public virtual Decimal ? Salario { get; set; }
 
         [Required]

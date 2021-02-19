@@ -54,7 +54,7 @@ namespace ContSelf
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Funcionario}/{action=Index}/{id?}");
+                    pattern: "{controller=Agenda}/{action=Index}/{id?}");
             });
         }
     }

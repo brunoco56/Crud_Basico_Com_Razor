@@ -1,17 +1,19 @@
-﻿using ContSelf.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using ContSelf.Models;
 
 namespace ContSelf.Controllers
 {
-    public class FuncionarioController : Controller
+    public class FuncionariosController : Controller
     {
-        // Aqui vem a injeção de dependência, preste atenção aqui!!!!
         private readonly Contexto _context;
 
-        public FuncionarioController(Contexto context)
+        public FuncionariosController(Contexto context)
         {
             _context = context;
         }
@@ -19,18 +21,7 @@ namespace ContSelf.Controllers
         // GET: Funcionarios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.funcionario.ToListAsync());
-        }
-
-        public async Task<IActionResult> Buscar(string nome)
-        {
-            var retorno = await _context.funcionario.Where(x => x.Nome.Contains(nome) || x.Atividade.Contains(nome)).ToListAsync();
-            //Validação de dados vazios
-            //if (retorno.Count == 0)
-            //{
-            //    return View("404");
-            //}
-            return View(retorno);
+            return View(await _context.Funcionario.ToListAsync());
         }
 
         // GET: Funcionarios/Details/5
@@ -41,7 +32,7 @@ namespace ContSelf.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.funcionario
+            var funcionario = await _context.Funcionario
                 .FirstOrDefaultAsync(m => m.CodFuncionario == id);
             if (funcionario == null)
             {
@@ -81,7 +72,7 @@ namespace ContSelf.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.funcionario.FindAsync(id);
+            var funcionario = await _context.Funcionario.FindAsync(id);
             if (funcionario == null)
             {
                 return NotFound();
@@ -132,7 +123,7 @@ namespace ContSelf.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.funcionario
+            var funcionario = await _context.Funcionario
                 .FirstOrDefaultAsync(m => m.CodFuncionario == id);
             if (funcionario == null)
             {
@@ -142,20 +133,20 @@ namespace ContSelf.Controllers
             return View(funcionario);
         }
 
-        /// POST: Funcionarios/Delete/5
+        // POST: Funcionarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var funcionario = await _context.funcionario.FindAsync(id);
-            _context.funcionario.Remove(funcionario);
+            var funcionario = await _context.Funcionario.FindAsync(id);
+            _context.Funcionario.Remove(funcionario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool FuncionarioExists(int id)
         {
-            return _context.funcionario.Any(e => e.CodFuncionario == id);
+            return _context.Funcionario.Any(e => e.CodFuncionario == id);
         }
     }
 }
