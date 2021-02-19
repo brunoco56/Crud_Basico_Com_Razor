@@ -20,10 +20,10 @@ namespace ContSelf.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.funcionario.ToListAsync());
-        }        
-        
+        }
+
         public async Task<IActionResult> Buscar(string nome)
-        {  
+        {
             var retorno = await _context.funcionario.Where(x => x.Nome.Contains(nome) || x.Atividade.Contains(nome)).ToListAsync();
             //Validação de dados vazios
             //if (retorno.Count == 0)
@@ -73,7 +73,7 @@ namespace ContSelf.Controllers
             return View(funcionario);
         }
 
-        // /GET: Funcionarios/Edit/5
+        // GET: Funcionarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -104,14 +104,6 @@ namespace ContSelf.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {SSSSSSSSS
-
-                }
-                catch (System.Exception)
-                {
-
-                    throw;
-                }
                 {
                     _context.Update(funcionario);
                     await _context.SaveChangesAsync();
@@ -150,7 +142,7 @@ namespace ContSelf.Controllers
             return View(funcionario);
         }
 
-        // POST: Funcionarios/Delete/5
+        /// POST: Funcionarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
