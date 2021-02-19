@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContSelf.Migrations
 {
-    public partial class Update : Migration
+    public partial class t : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace ContSelf.Migrations
                 {
                     CodFuncionario = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: false),
-                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    DataNascimento = table.Column<DateTime>(type: "datetime", nullable: false),
                     Salario = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
                     Atividade = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
